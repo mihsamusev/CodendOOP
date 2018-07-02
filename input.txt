@@ -1,0 +1,65 @@
+PATHS
+AxiExe		C:\Users\Misha\Dropbox\Thesis\AxiCodend\AxiCodend\bin\Debug\AxiCodend.exe
+InputAxi	C:\Users\Misha\Dropbox\Thesis\AxiCodend\AxiCodend\bin\Debug\input.txt
+OutputAxiShapes C:\Users\Misha\Dropbox\Thesis\AxiCodend\AxiCodend\bin\Debug\shapes.txt
+Output3dShapes	C:\Users\Misha\Dropbox\Thesis\Demonstration\DemoStrapsShape.txt
+Output3dResults	C:\Users\Misha\Dropbox\Thesis\Demonstration\DemoStrapsResults.txt
+
+CODEND ASSEMBLY
+EntranceRadius 0.3
+
+PANELS
+PanelCount 2
+ID	Type		MaterialID	MeshesAlong	MeshesAcross	Orientation
+1	DiamondPanel 	1 		50 		25		0
+1	DiamondPanel 	1 		50 		25		0
+
+PANEL MATERIALS
+PanelMaterialCount 2
+ID	Type	Density	MeshSide	IsDoubleTwine	TwineThickness	InitialOpeningAngle	EA	EI	OpenningStifness
+1	Diamond	1025	0.1		0		0.0014		45			1000	0.002	0.2	
+2	Square	1025	0.1		0		0.0014		45			1000	0.002	0.2400
+
+SELVEDGES
+IncludeSelvedges 0
+Length	Density	Diameter	EA	EI
+4.5	1025	0.012		5000	0
+
+ROUND STRAPS
+IncludeRoundStraps 1
+RoundStrapCount 1
+ID	Length	Position	Density	 Diameter	EA	EI
+1	2.5	0.3		1025	0.012		5000	0
+
+
+
+TOWING
+IncludeNettingDrag 0
+CX 0
+CY 0.8
+CZ 0
+
+CATCH
+CatchCount 5
+ApplyMethod ByBlockedMeshes
+20
+25
+30
+35
+40
+
+MESHING
+MeshingMethod ByElement
+MeshPerElemAlong 5
+MeshPerElemAcross 3
+ElemAcrossPanel 10
+ElemAlongPanel 20
+
+SOLVER PARAMETERS
+InitialShape Axi
+IncludeLineSearch 1
+DiagStiffness 10
+ResidualTol 1e-1
+StiffnessTol 1
+ReduceStiffnessBy 0.8
+IterMax 3000
